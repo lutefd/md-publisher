@@ -14,7 +14,6 @@ FROM gcr.io/distroless/static-debian12
 WORKDIR /app
 
 COPY --from=builder /app/server /app/server
-COPY --from=builder /app/data /app/data
 COPY --from=builder /app/.env* /app/
 
 EXPOSE 8080
