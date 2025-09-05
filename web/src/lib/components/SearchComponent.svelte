@@ -105,16 +105,16 @@
 
 <div class="space-y-6">
 	<div class="relative">
-		<div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+		<div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
 			{#if searching}
-				<Loader2 class="h-5 w-5 animate-spin text-gray-400" />
+				<Loader2 class="w-5 h-5 text-gray-400 animate-spin" />
 			{:else}
-				<Search class="h-5 w-5 text-gray-400" />
+				<Search class="w-5 h-5 text-gray-400" />
 			{/if}
 		</div>
 		<input
 			type="search"
-			class="block w-full rounded-lg border border-gray-300 bg-white p-4 pl-10 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400"
+			class="block w-full p-4 pl-10 text-sm text-gray-900 bg-white border border-gray-300 rounded-lg focus:border-blue-500 focus:ring-blue-500 dark:border-gray-700 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400"
 			placeholder="Search by title, content, or tags..."
 			bind:value={searchQuery}
 			onkeydown={handleKeyDown}
@@ -123,7 +123,7 @@
 
 	{#if loading}
 		<div class="flex items-center justify-center py-8">
-			<Loader2 class="h-8 w-8 animate-spin text-blue-500" />
+			<Loader2 class="w-8 h-8 text-blue-500 animate-spin" />
 			<span class="ml-2 text-gray-600 dark:text-gray-400">Loading search index...</span>
 		</div>
 	{:else if searchQuery && searchResults.length === 0}
@@ -136,24 +136,24 @@
 			{#each searchResults as result, i}
 				<a
 					href={`/note/${result.id}`}
-					class="block rounded-lg border border-gray-200 bg-white p-4 transition-colors hover:bg-gray-50 dark:border-gray-800 dark:bg-gray-900 dark:hover:bg-gray-800"
+					class="block p-4 transition-colors bg-white border border-gray-200 rounded-lg hover:bg-gray-50 dark:border-gray-800 dark:bg-gray-900 dark:hover:bg-gray-800"
 					class:ring-2={i === selectedResult}
 					class:ring-blue-500={i === selectedResult}
 				>
 					<div class="flex items-start">
 						<FileText class="mr-3 mt-0.5 h-5 w-5 flex-shrink-0 text-blue-500 dark:text-blue-400" />
-						<div class="min-w-0 flex-1">
-							<h3 class="truncate text-lg font-semibold text-gray-900 dark:text-white">
+						<div class="flex-1 min-w-0">
+							<h3 class="text-lg font-semibold text-gray-900 truncate dark:text-white">
 								{@html highlightMatch(result.metadata?.title || result.id, searchQuery)}
 							</h3>
 							{#if result.metadata?.description}
-								<p class="mt-1 line-clamp-2 text-gray-600 dark:text-gray-400">
+								<p class="mt-1 text-gray-600 line-clamp-2 dark:text-gray-400">
 									{@html highlightMatch(result.metadata.description, searchQuery)}
 								</p>
 							{/if}
-							<div class="mt-2 flex flex-wrap gap-2">
+							<div class="flex flex-wrap gap-2 mt-2">
 								{#if result.metadata?.tags && result.metadata.tags.length > 0}
-									<div class="mr-4 flex items-center text-xs text-gray-500 dark:text-gray-400">
+									<div class="flex items-center mr-4 text-xs text-gray-500 dark:text-gray-400">
 										<Tag class="mr-1 h-3.5 w-3.5" />
 										<span>
 											{result.metadata.tags.slice(0, 3).join(', ')}
