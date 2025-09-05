@@ -24,7 +24,7 @@ services:
       - ./api/.env:/app/.env
     environment:
       - GIN_MODE=release
-      - API_KEY=${API_KEY:-}
+      - API_KEY=${API_KEY}
     networks:
       - caddy_net
     restart: unless-stopped
