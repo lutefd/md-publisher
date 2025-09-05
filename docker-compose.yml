@@ -21,6 +21,7 @@ services:
       - "8080:8080"
     volumes:
       - badger_data:/app/data
+      - ./api/.env:/app/.env
     environment:
       - GIN_MODE=release
     networks:
