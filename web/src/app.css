@@ -1,0 +1,158 @@
+@import 'tailwindcss';
+
+/* Font configuration */
+@layer base {
+	:root {
+		--font-sans: InterVariable, sans-serif;
+		font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+	}
+}
+
+/* Enhanced Markdown Styling */
+@layer components {
+	/* Code blocks */
+	.prose pre {
+		@apply overflow-x-auto rounded-lg bg-gray-900 shadow-md dark:bg-gray-950;
+		@apply border border-gray-700 dark:border-gray-800;
+		@apply my-6;
+	}
+
+	.prose pre code {
+		@apply bg-transparent p-0 text-gray-200 dark:text-gray-300;
+		@apply text-sm sm:text-base;
+		@apply font-mono;
+		@apply block p-4 sm:p-5;
+	}
+
+	/* Inline code */
+	.prose :not(pre) > code {
+		@apply bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200;
+		@apply rounded px-1.5 py-0.5;
+		@apply text-sm;
+		@apply font-mono;
+		@apply whitespace-nowrap;
+	}
+
+	/* Images */
+	.prose img {
+		@apply mx-auto my-6 rounded-lg shadow-md;
+		@apply border border-gray-200 dark:border-gray-800;
+		@apply h-auto max-w-full;
+		@apply transition-all duration-200;
+	}
+
+	.prose img:hover {
+		@apply scale-[1.01] transform shadow-lg;
+	}
+
+	.prose figure {
+		@apply my-8;
+	}
+
+	.prose figcaption {
+		@apply mt-2 text-center text-sm text-gray-500 dark:text-gray-400;
+	}
+
+	/* Tables */
+	.prose table {
+		@apply my-6 w-full overflow-hidden;
+		@apply rounded-lg border border-gray-200 dark:border-gray-800;
+		@apply shadow-sm;
+	}
+
+	.prose thead {
+		@apply bg-gray-100 dark:bg-gray-800;
+	}
+
+	.prose th {
+		@apply px-4 py-3 text-left text-sm font-medium text-gray-900 dark:text-white;
+		@apply border-b border-gray-200 dark:border-gray-700;
+	}
+
+	.prose tbody tr {
+		@apply border-b border-gray-200 last:border-0 dark:border-gray-800;
+	}
+
+	.prose tbody tr:nth-child(even) {
+		@apply bg-gray-50 dark:bg-gray-900/50;
+	}
+
+	.prose td {
+		@apply px-4 py-3 text-sm text-gray-600 dark:text-gray-300;
+	}
+
+	/* Links */
+	.prose a {
+		@apply font-medium text-blue-600 dark:text-blue-400;
+		@apply transition-all duration-200;
+		@apply decoration-blue-300 decoration-2 underline-offset-2 dark:decoration-blue-700;
+	}
+
+	.prose a:hover {
+		@apply text-blue-700 dark:text-blue-300;
+		@apply underline decoration-blue-500 dark:decoration-blue-500;
+	}
+
+	/* Blockquotes */
+	.prose blockquote {
+		@apply border-l-4 border-blue-500 dark:border-blue-600;
+		@apply bg-blue-50 dark:bg-blue-900/20;
+		@apply my-6 py-2 pl-4 pr-2;
+		@apply rounded-r-lg;
+	}
+
+	.prose blockquote p {
+		@apply italic text-gray-700 dark:text-gray-300;
+	}
+
+	/* Lists */
+	.prose ul,
+	.prose ol {
+		@apply my-4 pl-6;
+	}
+
+	.prose li {
+		@apply mb-2;
+	}
+
+	.prose ul > li {
+		@apply list-disc;
+	}
+
+	.prose ol > li {
+		@apply list-decimal;
+	}
+
+	/* Headings */
+	.prose h1,
+	.prose h2,
+	.prose h3,
+	.prose h4,
+	.prose h5,
+	.prose h6 {
+		@apply scroll-mt-20 font-bold text-gray-900 dark:text-white;
+	}
+
+	.prose h1 {
+		@apply mb-6 mt-10 border-b border-gray-200 pb-2 text-3xl sm:text-4xl dark:border-gray-800;
+	}
+
+	.prose h2 {
+		@apply mb-4 mt-8 border-b border-gray-200 pb-1 text-2xl sm:text-3xl dark:border-gray-800;
+	}
+
+	.prose h3 {
+		@apply mb-3 mt-6 text-xl sm:text-2xl;
+	}
+
+	.prose h4 {
+		@apply mb-2 mt-4 text-lg sm:text-xl;
+	}
+}
+
+/* Base styles */
+@layer base {
+	body {
+		@apply min-h-screen bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100;
+	}
+}
