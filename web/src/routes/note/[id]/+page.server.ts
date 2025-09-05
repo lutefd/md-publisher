@@ -6,13 +6,13 @@ export async function load({ params }) {
 	try {
 		const noteId = params.id;
 		const note = await getNote(noteId);
-		
+
 		if (!note) {
 			throw error(404, 'Note not found');
 		}
-		
+
 		const content = marked.parse(note.content);
-		
+
 		return {
 			note,
 			content
@@ -21,4 +21,4 @@ export async function load({ params }) {
 		console.error('Failed to load note:', err);
 		throw error(404, 'Note not found');
 	}
-};
+}

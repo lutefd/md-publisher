@@ -15,13 +15,13 @@
 	<title>Notes</title>
 </svelte:head>
 
-<div class="flex flex-col min-h-screen">
+<div class="flex min-h-screen flex-col">
 	<header
 		class="sticky top-0 z-40 w-full border-b border-gray-200 bg-white/80 backdrop-blur-sm dark:border-gray-800 dark:bg-gray-950/80"
 	>
-		<div class="container flex items-center h-16 px-4 sm:px-6 lg:px-8">
+		<div class="container flex h-16 items-center px-4 sm:px-6 lg:px-8">
 			<a href="/" class="flex items-center space-x-2">
-				<span class="w-6 h-6 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600"></span>
+				<span class="h-6 w-6 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600"></span>
 				<span class="text-xl font-bold text-gray-900 dark:text-white">Notes</span>
 			</a>
 			<div class="flex-1"></div>
@@ -40,13 +40,13 @@
 			</nav>
 		</div>
 	</header>
-	<main class="container flex-1 max-w-4xl px-4 py-8 mx-auto sm:px-6 lg:px-8">
+	<main class="container mx-auto max-w-4xl flex-1 px-4 py-8 sm:px-6 lg:px-8">
 		{@render children?.()}
 	</main>
-	<footer class="py-6 border-t border-gray-200 dark:border-gray-800">
-		<div class="container px-4 mx-auto sm:px-6 lg:px-8">
+	<footer class="border-t border-gray-200 py-6 dark:border-gray-800">
+		<div class="container mx-auto px-4 sm:px-6 lg:px-8">
 			<div class="flex flex-col items-center justify-between gap-4 md:flex-row">
-				<p class="text-sm text-center text-gray-500 dark:text-gray-400">
+				<p class="text-center text-sm text-gray-500 dark:text-gray-400">
 					© {new Date().getFullYear()} Lute's free stack
 				</p>
 				<div class="flex items-center gap-4">
