@@ -2,24 +2,8 @@
 	import '../app.css';
 	import favicon from '$lib/assets/favicon.svg';
 	import CommandSearch from '$lib/components/CommandSearch.svelte';
-	import { getNotes } from '$lib/notes';
-	import type { Note } from '$lib/api';
-
-	let { children } = $props();
-	let notes = $state<Note[]>([]);
-
-	$effect(() => {
-		loadNotes();
-	});
-
-	async function loadNotes() {
-		try {
-			notes = await getNotes();
-		} catch (err) {
-			console.error('Failed to load notes:', err);
-			notes = [];
-		}
-	}
+	let { data, children } = $props();
+	let notes = $derived(data.notes || []);
 </script>
 
 <svelte:head>
