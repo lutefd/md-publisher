@@ -1,0 +1,30 @@
+publisher.example.com {
+    # Route API requests to the Go API service
+    handle_path /api/* {
+        # Strip the /api prefix
+        uri strip_prefix /api
+        # Forward to the API service
+        reverse_proxy api:8080
+    }
+
+    # Route all other requests to the frontend
+    handle {
+        # Forward to the frontend service
+        reverse_proxy frontend:4321
+    }
+
+    # Enable compression
+    encode gzip
+    
+    # Add security headers
+    header {
+        # Enable HSTS
+        Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+        # Prevent MIME type sniffing
+        X-Content-Type-Options "nosniff"
+        # Enable XSS protection
+        X-XSS-Protection "1; mode=block"
+        # Prevent clickjacking
+        X-Frame-Options "SAMEORIGIN"
+    }
+}
