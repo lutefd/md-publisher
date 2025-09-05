@@ -66,15 +66,6 @@
 
 	onMount(async () => {
 		try {
-			if (!localNotes || localNotes.length === 0) {
-				try {
-					const { getAllNotes } = await import('$lib/api');
-					localNotes = await getAllNotes();
-				} catch (e) {
-					console.error('Failed to fetch notes on mount:', e);
-				}
-			}
-
 			searchIndex = lunr(function (this: any) {
 				this.field('title', { boost: 10 });
 				this.field('description', { boost: 5 });
@@ -118,9 +109,9 @@
 
 <button
 	onclick={() => (open = true)}
-	class="inline-flex h-9 items-center justify-center rounded-md border border-gray-200 bg-white px-3 text-sm font-medium ring-offset-white transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:bg-gray-950 dark:ring-offset-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300"
+	class="inline-flex items-center justify-center px-3 text-sm font-medium transition-colors bg-white border border-gray-200 rounded-md h-9 ring-offset-white hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:bg-gray-950 dark:ring-offset-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300"
 >
-	<Search class="mr-2 h-4 w-4" />
+	<Search class="w-4 h-4 mr-2" />
 	<span class="sr-only sm:not-sr-only sm:whitespace-nowrap">Search</span>
 	<kbd
 		class="pointer-events-none ml-2 hidden h-5 select-none items-center gap-1 rounded border border-gray-200 bg-gray-100 px-1.5 font-mono text-[10px] font-medium text-gray-600 opacity-100 sm:flex dark:border-gray-800 dark:bg-gray-900 dark:text-gray-400"
@@ -153,22 +144,22 @@
 				shouldFilter={false}
 			>
 				<Command.Input
-					class="command-input flex h-12 w-full rounded-md border-0 border-b border-gray-200 bg-transparent px-4 py-3 text-sm outline-none placeholder:text-gray-500 focus:ring-0 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-800 dark:placeholder:text-gray-400"
+					class="flex w-full h-12 px-4 py-3 text-sm bg-transparent border-0 border-b border-gray-200 rounded-md outline-none command-input placeholder:text-gray-500 focus:ring-0 disabled:cursor-not-allowed disabled:opacity-50 dark:border-gray-800 dark:placeholder:text-gray-400"
 					bind:value={searchQuery}
 					placeholder="Search notes..."
 				/>
 				<Command.List class="max-h-[300px] overflow-y-auto overflow-x-hidden p-2">
 					{#if loading}
 						<Command.Loading>
-							<div class="p-4 text-center text-sm text-gray-500 dark:text-gray-400">Loading...</div>
+							<div class="p-4 text-sm text-center text-gray-500 dark:text-gray-400">Loading...</div>
 						</Command.Loading>
 					{:else if !searchQuery.trim()}
-						<div class="p-4 text-center text-sm text-gray-500 dark:text-gray-400">
+						<div class="p-4 text-sm text-center text-gray-500 dark:text-gray-400">
 							Start typing to search notes...
 						</div>
 					{:else if searchQuery && searchResults.length === 0}
 						<Command.Empty>
-							<div class="p-4 text-center text-sm text-gray-500 dark:text-gray-400">
+							<div class="p-4 text-sm text-center text-gray-500 dark:text-gray-400">
 								No results found for "{searchQuery}"
 							</div>
 						</Command.Empty>
@@ -182,11 +173,11 @@
 										class="relative flex cursor-pointer select-none items-center rounded-md px-2 py-2.5 text-sm outline-none hover:bg-gray-100 aria-selected:bg-gray-100 dark:hover:bg-gray-800 dark:aria-selected:bg-gray-800"
 									>
 										<div class="flex-1 truncate">
-											<h4 class="truncate font-medium text-gray-900 dark:text-white">
+											<h4 class="font-medium text-gray-900 truncate dark:text-white">
 												{result.metadata.title || result.id}
 											</h4>
 											{#if result.metadata.description}
-												<p class="truncate text-xs text-gray-500 dark:text-gray-400">
+												<p class="text-xs text-gray-500 truncate dark:text-gray-400">
 													{result.metadata.description}
 												</p>
 											{/if}
@@ -199,21 +190,21 @@
 				</Command.List>
 			</Command.Root>
 			<div
-				class="flex items-center justify-between border-t border-gray-200 p-2 dark:border-gray-800"
+				class="flex items-center justify-between p-2 border-t border-gray-200 dark:border-gray-800"
 			>
 				<div class="text-xs text-gray-500 dark:text-gray-400">
 					Press <kbd
-						class="rounded border border-gray-200 bg-gray-100 px-1 text-xs dark:border-gray-800 dark:bg-gray-900"
+						class="px-1 text-xs bg-gray-100 border border-gray-200 rounded dark:border-gray-800 dark:bg-gray-900"
 						>↑</kbd
 					>
 					<kbd
-						class="rounded border border-gray-200 bg-gray-100 px-1 text-xs dark:border-gray-800 dark:bg-gray-900"
+						class="px-1 text-xs bg-gray-100 border border-gray-200 rounded dark:border-gray-800 dark:bg-gray-900"
 						>↓</kbd
 					> to navigate
 				</div>
 				<div class="text-xs text-gray-500 dark:text-gray-400">
 					Press <kbd
-						class="rounded border border-gray-200 bg-gray-100 px-1 text-xs dark:border-gray-800 dark:bg-gray-900"
+						class="px-1 text-xs bg-gray-100 border border-gray-200 rounded dark:border-gray-800 dark:bg-gray-900"
 						>Enter</kbd
 					> to select
 				</div>
