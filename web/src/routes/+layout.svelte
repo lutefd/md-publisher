@@ -51,7 +51,7 @@
 				</p>
 				<div class="flex items-center gap-4">
 					<a
-						href="https://github.com/lutefd/md-publsiher"
+						href="https://github.com/lutefd/md-publisher"
 						target="_blank"
 						rel="noopener noreferrer"
 						class="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"

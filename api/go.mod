@@ -1,4 +1,4 @@
-module github.com/lutefd/md-publsiher/api
+module github.com/lutefd/md-publisher/api
 
 go 1.25
 

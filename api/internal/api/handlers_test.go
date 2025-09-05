@@ -9,7 +9,7 @@ import (
 	"testing"
 
 	"github.com/go-chi/chi/v5"
-	"github.com/lutefd/md-publsiher/api/internal/storage"
+	"github.com/lutefd/md-publisher/api/internal/storage"
 )
 
 type MockNoteStore struct {
