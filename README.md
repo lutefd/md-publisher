@@ -95,13 +95,50 @@ caddy run
 
 ## Usage
 
-### Publishing Notes
+### API Authentication
 
-To publish a note, send a POST request to the API:
+The API uses an API key for authentication on protected endpoints (publish and delete operations). To use these endpoints, you need to:
+
+1. Create a `.env` file in the `api` directory based on the `.env.sample` template:
+
+```bash
+cp api/.env.sample api/.env
+```
+
+2. Edit the `.env` file and set a secure API key:
+
+```
+API_KEY=your_secure_api_key_here
+```
+
+3. Include the API key in your requests to protected endpoints:
 
 ```bash
 curl -X POST http://localhost:8080/publish \
   -H "Content-Type: application/json" \
+  -H "X-API-Key: your_secure_api_key_here" \
+  -d '{
+    "id": "my-note",
+    "content": "# My Note\n\nThis is my note content.",
+    "metadata": {
+      "title": "My Note",
+      "tags": ["example", "note"]
+    }
+  }'
+```
+
+### API Documentation
+
+The API is documented using OpenAPI/Swagger. You can view the API documentation at `/swagger.yaml` or import it into tools like Swagger UI, Postman, or Insomnia.
+
+### Publishing Notes
+
+To publish a note, send a POST request to the API with your API key:
+
+```bash
+curl -X POST http://localhost:8080/publish \
+  -H "Content-Type: application/json" \
+  -H "X-API-Key: your_secure_api_key_here" \
   -d '{
     "id": "my-note",
     "content": "# My Note\n\nThis is my note content.",
@@ -114,10 +151,11 @@ curl -X POST http://localhost:8080/publish \
 
 ### Unpublishing Notes
 
-To unpublish a note, send a DELETE request to the API:
+To unpublish a note, send a DELETE request to the API with your API key:
 
 ```bash
-curl -X DELETE http://localhost:8080/note/my-note
+curl -X DELETE http://localhost:8080/note/my-note \
+  -H "X-API-Key: your_secure_api_key_here"
 ```
 
 ## License
