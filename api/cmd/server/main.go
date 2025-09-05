@@ -3,16 +3,26 @@ package main
 import (
 	"log"
 	"net/http"
+	"os"
 	"path/filepath"
 
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
 	"github.com/go-chi/cors"
+	"github.com/joho/godotenv"
 	"github.com/lutefd/md-publsiher/api/internal/api"
 	"github.com/lutefd/md-publsiher/api/internal/storage"
 )
 
 func main() {
+	if err := godotenv.Load(); err != nil {
+		log.Println("Warning: .env file not found or could not be loaded. Using environment variables.")
+	}
+
+	if os.Getenv("API_KEY") == "" {
+		log.Println("Warning: API_KEY environment variable not set. Protected endpoints will be accessible without authentication.")
+	}
+
 	dataPath := filepath.Join(".", "data")
 
 	store, err := storage.NewBadgerStore(dataPath)
