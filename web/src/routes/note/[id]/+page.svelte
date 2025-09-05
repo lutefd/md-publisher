@@ -26,7 +26,7 @@
 			<a href="/" class="flex items-center text-blue-600 hover:underline dark:text-blue-400">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
-					class="mr-1 h-4 w-4"
+					class="w-4 h-4 mr-1"
 					viewBox="0 0 24 24"
 					fill="none"
 					stroke="currentColor"
@@ -43,7 +43,7 @@
 		{#if loading}
 			<div class="py-8 text-center">
 				<div
-					class="inline-block h-8 w-8 animate-spin rounded-full border-b-2 border-t-2 border-blue-500"
+					class="inline-block w-8 h-8 border-t-2 border-b-2 border-blue-500 rounded-full animate-spin"
 				></div>
 				<p class="mt-2 text-gray-600 dark:text-gray-400">Loading note...</p>
 			</div>
@@ -71,7 +71,7 @@
 			<!-- Display additional metadata from frontmatter -->
 			<MetadataDisplay metadata={data.note.metadata || {}} />
 
-			<div class="border-b border-gray-200 pt-4 dark:border-gray-800"></div>
+			<div class="pt-4 border-b border-gray-200 dark:border-gray-800"></div>
 		{/if}
 	</div>
 
@@ -85,15 +85,15 @@
 		{/if}
 	</div>
 
-	<div class="mt-16 border-t border-gray-200 pt-8 dark:border-gray-800">
+	<div class="pt-8 mt-16 border-t border-gray-200 dark:border-gray-800">
 		<div class="flex items-center justify-between">
 			<a
 				href="/"
-				class="inline-flex h-9 items-center justify-center rounded-md border border-gray-200 bg-white px-4 py-2 text-sm font-medium ring-offset-white transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:bg-gray-950 dark:ring-offset-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300"
+				class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium transition-colors bg-white border border-gray-200 rounded-md h-9 ring-offset-white hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:bg-gray-950 dark:ring-offset-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300"
 			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
-					class="mr-2 h-4 w-4"
+					class="w-4 h-4 mr-2"
 					viewBox="0 0 24 24"
 					fill="none"
 					stroke="currentColor"
@@ -104,11 +104,11 @@
 				Back to notes
 			</a>
 			<button
-				class="back-to-top inline-flex h-9 items-center justify-center rounded-md border border-gray-200 bg-white px-4 py-2 text-sm font-medium ring-offset-white transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:bg-gray-950 dark:ring-offset-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300"
+				class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium transition-colors bg-white border border-gray-200 rounded-md back-to-top h-9 ring-offset-white hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-950 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:bg-gray-950 dark:ring-offset-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300"
 			>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
-					class="mr-2 h-4 w-4"
+					class="w-4 h-4 mr-2"
 					viewBox="0 0 24 24"
 					fill="none"
 					stroke="currentColor"

@@ -15,20 +15,20 @@
 			<div class="w-full border-t border-gray-200 dark:border-gray-800"></div>
 		</div>
 		<div class="relative flex justify-center">
-			<span class="bg-white px-4 text-sm text-gray-500 dark:bg-gray-950 dark:text-gray-400"
+			<span class="px-4 text-sm text-gray-500 bg-white dark:bg-gray-950 dark:text-gray-400"
 				>Search</span
 			>
 		</div>
 	</div>
 
-	<div class="mx-auto max-w-2xl text-center">
+	<div class="max-w-2xl mx-auto text-center">
 		<h1 class="text-4xl font-bold tracking-tight text-gray-900 dark:text-white">Find your notes</h1>
 		<p class="mt-4 text-gray-600 dark:text-gray-400">
 			Search through all your published notes by title, content, or tags.
 		</p>
 	</div>
 
-	<div class="mx-auto mt-8 max-w-3xl">
+	<div class="max-w-3xl mx-auto mt-8">
 		<SearchComponent notes={data.notes} />
 	</div>
 </div>
