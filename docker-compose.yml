@@ -8,12 +8,12 @@ services:
     environment:
       - NODE_ENV=production
     depends_on:
-      - pubslisher-api
+      - publisher-api
     networks:
       - caddy_net
     restart: unless-stopped
 
-  pubslisher-api:
+  publisher-api:
     build:
       context: ./api
       dockerfile: Dockerfile
