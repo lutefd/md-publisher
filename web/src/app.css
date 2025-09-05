@@ -15,6 +15,8 @@
 		@apply overflow-x-auto rounded-lg bg-gray-900 shadow-md dark:bg-gray-950;
 		@apply border border-gray-700 dark:border-gray-800;
 		@apply my-6;
+		@apply -mx-4 sm:mx-0; /* Negative margin on mobile to extend to edges */
+		@apply px-4 sm:px-0; /* Add padding back on mobile */
 	}
 
 	.prose pre code {
@@ -55,9 +57,16 @@
 
 	/* Tables */
 	.prose table {
-		@apply my-6 w-full overflow-hidden;
+		@apply my-6 w-full;
 		@apply rounded-lg border border-gray-200 dark:border-gray-800;
 		@apply shadow-sm;
+	}
+
+	.prose .table-wrapper {
+		@apply overflow-x-auto;
+		@apply -mx-4 sm:mx-0;
+		@apply px-4 sm:px-0;
+		@apply rounded-lg;
 	}
 
 	.prose thead {
