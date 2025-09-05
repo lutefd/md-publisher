@@ -111,7 +111,7 @@ Example Caddyfile snippet:
 
 ```
 publisher.example.com {
-    reverse_proxy publisher-frontend:5173
+    reverse_proxy publisher-frontend:3000
 }
 
 api.publisher.example.com {
