@@ -28,10 +28,14 @@ func NewAPI(noteStore NoteStorer) *API {
 }
 
 func (api *API) RegisterRoutes(r chi.Router) {
-	r.Post("/publish", api.PublishNote)
-	r.Delete("/note/{id}", api.UnpublishNote)
 	r.Get("/notes", api.ListNotes)
 	r.Get("/note/{id}", api.GetNote)
+
+	r.Group(func(r chi.Router) {
+		r.Use(APIKeyMiddleware)
+		r.Post("/publish", api.PublishNote)
+		r.Delete("/note/{id}", api.UnpublishNote)
+	})
 }
 func (api *API) PublishNote(w http.ResponseWriter, r *http.Request) {
 	var note storage.Note
