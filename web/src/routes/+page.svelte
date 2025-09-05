@@ -15,18 +15,18 @@
 		</div>
 		<div class="relative flex justify-center">
 			<span class="px-4 text-sm text-gray-500 bg-white dark:bg-gray-950 dark:text-gray-400"
-				>Your Knowledge Base</span
+				>My Shared Knowledge Base</span
 			>
 		</div>
 	</div>
 
 	<h1 class="text-4xl font-bold tracking-tight text-center text-gray-900 dark:text-white">
-		Welcome to your Notes
+		Welcome to my notes
 	</h1>
 
 	<p class="max-w-2xl mx-auto text-center text-gray-600 dark:text-gray-400">
-		A self-hosted alternative to Obsidian Publish. Browse your published notes below or use the
-		search feature to find specific content.
+		This is a self-hosted alternative to Obsidian Publish. Browse my published notes below or use
+		the search feature to find specific content.
 	</p>
 
 	<div class="mt-10">
@@ -50,9 +50,7 @@
 				<h3 class="mt-2 text-sm font-semibold text-gray-900 dark:text-white">
 					No notes published yet
 				</h3>
-				<p class="mt-1 text-sm text-gray-500 dark:text-gray-400">
-					Get started by publishing your first note.
-				</p>
+				<p class="mt-1 text-sm text-gray-500 dark:text-gray-400">I'll publish my notes here</p>
 			</div>
 		{:else}
 			<div class="grid gap-6 sm:grid-cols-2">

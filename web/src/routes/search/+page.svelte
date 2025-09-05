@@ -24,7 +24,7 @@
 	<div class="max-w-2xl mx-auto text-center">
 		<h1 class="text-4xl font-bold tracking-tight text-gray-900 dark:text-white">Find your notes</h1>
 		<p class="mt-4 text-gray-600 dark:text-gray-400">
-			Search through all your published notes by title, content, or tags.
+			Search through all my published notes by title, content, or tags.
 		</p>
 	</div>
 
